@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Poster</title>
+  <style>
+    .btn {
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    #login_form {
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #login_form * {
+      margin-bottom: 10px;
+    }
+
+    #messages_container {
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .message {
+      border: solid;
+      padding: 10px 0px;
+      border-radius: 10px;
+      background-color: lightgrey;
+      width: 500px;
+      text-align: center;
+    }
+    .buttons_container {
+      display: flex;
+      width: 500px;
+      justify-content: space-between;
+    }
+    #post_form {
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #post {
+      width: 100px;
+    }
+    .post_text {
+      height: 100px;
+      width: 400px;
+    }
+  </style>
+  <script src="./index.js"></script>
+
+</head>
+<body>
+    <h1>Welcome to poster</h1>
+    <div id="login_container">
+    <div id="login_form">
+      <input id="nickname" type="login"/>
+      <input id="password" type="password"/>
+      <div class="buttons_container">
+        <button id="login" class="btn">login</button>
+        <button id="register" class="btn">register</button>
+      </div>
+    </div>
+    </div>
+    <div id="post_form">
+      <input id="post_text" type="textarea", class="post_text"/>
+      <button id="post" class="btn">post</button>
+    </div>
+    <div id="messages">
+      <div id="messages_container">
+
+      </div>
+      <div class="buttons_container">
+      <button id="previous" class="btn">previous page</button>
+      <button id="next" class="btn">next page</button>
+    </div>
+    </div>
+</body>
+</html>
