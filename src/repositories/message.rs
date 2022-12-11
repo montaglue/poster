@@ -18,7 +18,7 @@ pub struct MessageRepo {
 }
 
 impl MessageRepo {
-    const DATABASE: &'static str = "User";
+    const DATABASE: &'static str = "Poster";
     const COLLECTION: &'static str = "Messages";
 
     pub async fn new(uri: String) -> Self {

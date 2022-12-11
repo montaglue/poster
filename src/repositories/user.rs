@@ -16,7 +16,7 @@ pub struct UserRepo {
 }
 
 impl UserRepo {
-    const DATABASE: &'static str = "User";
+    const DATABASE: &'static str = "Poster";
     const COLLECTION: &'static str = "Users";
 
     

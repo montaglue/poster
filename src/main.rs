@@ -16,9 +16,8 @@ use repositories::{user::UserRepo, message::MessageRepo};
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    dotenv::dotenv().ok();
     let mongo_uri = env::var("MONGOURI").unwrap();
-    let secret_key = env::var("SEKRET_KEY").unwrap();
+    let secret_key = Key::generate();
     env_logger::init();
 
     let user_repo = UserRepo::new(mongo_uri.clone()).await;
@@ -27,7 +26,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(IdentityMiddleware::default())
             .wrap(
-                SessionMiddleware::builder(CookieSessionStore::default(), Key::from(secret_key.as_bytes()))
+                SessionMiddleware::builder(CookieSessionStore::default(), secret_key.clone())
                     .cookie_name("poster-auth".to_owned())
                     .cookie_secure(false)
                     .build(),

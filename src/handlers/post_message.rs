@@ -16,14 +16,7 @@ pub async fn post_message(
     let message = message.into_inner();
     if let Ok(nickname) = id.id() {
 
-        let user = match  user_repo.get_user(nickname).await {
-            Ok(val) => val,
-            Err(e) => {
-                log::error!("Error: {:?}", e);
-                panic!()
-            }
-        };
-
+        let user = log_error!(user_repo.get_user(nickname).await);
 
         if let Some(user) = user {
             let model = MessageModel {

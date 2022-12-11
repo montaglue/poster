@@ -21,10 +21,7 @@ async fn register(req: HttpRequest, user: web::Json<User>, repo: web::Data<UserR
         nickname: user.nickname.clone(),
         password: user.password,
     };
-    if let Err(e) = repo.create_user(model).await {
-        log::error!("Error: {:?}", e);
-        panic!();
-    }
+    log_error!(repo.create_user(model).await);
     log_error!(Identity::login(&req.extensions(), user.nickname));
     HttpResponse::Ok()
 }
