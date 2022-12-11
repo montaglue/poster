@@ -1,7 +1,7 @@
 # Poster
 ```
-docker build -t poster .
-docker run -p 8080:8080 -t poster
+docker-compose build
+docker-compose up
 ```
 
 ## Api
